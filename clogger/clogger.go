@@ -2,10 +2,11 @@ package clogger
 
 import (
 	"fmt"
-	"github.com/goccy/go-json"
 	"runtime"
 	"strings"
-	"logger"
+
+	"github.com/goccy/go-json"
+	"github.com/appneuroncompany/light-logger"
 )
 
 var reset = "\033[0m"

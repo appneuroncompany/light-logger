@@ -1,4 +1,4 @@
-module github.com/appneuronco/light-logger
+module github.com/appneuroncompany/light-logger
 
 go 1.17
 

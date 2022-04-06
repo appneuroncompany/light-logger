@@ -5,8 +5,8 @@ import (
 	"runtime"
 	"strings"
 
+	logger "github.com/appneuroncompany/light-logger"
 	"github.com/goccy/go-json"
-	"github.com/appneuroncompany/light-logger"
 )
 
 var reset = "\033[0m"
@@ -33,7 +33,7 @@ func init() {
 	}
 }
 
-func Default(message *logger.Messages) {
+func Default(message *map[string]interface{}) {
 	logger.Log.Level = "DEFAULT"
 	logger.Log.Message = message
 	pc, file, line, ok := runtime.Caller(1)
@@ -48,7 +48,7 @@ func Default(message *logger.Messages) {
 	println(white + string(res2B) + reset)
 }
 
-func Info(message *logger.Messages) {
+func Info(message *map[string]interface{}) {
 	logger.Log.Level = "INFO"
 	logger.Log.Message = message
 	pc, file, line, ok := runtime.Caller(1)
@@ -63,7 +63,7 @@ func Info(message *logger.Messages) {
 	println(blue + string(res2B) + reset)
 }
 
-func Warning(message *logger.Messages) {
+func Warning(message *map[string]interface{}) {
 	logger.Log.Level = "WARNING"
 	logger.Log.Message = message
 	pc, file, line, ok := runtime.Caller(1)
@@ -78,8 +78,15 @@ func Warning(message *logger.Messages) {
 	println(yellow + string(res2B) + reset)
 }
 
-func Error(message *logger.Messages) {
+func Error(message *map[string]interface{}) {
 	logger.Log.Level = "ERROR"
+	for k, v := range *message {
+		val, ok := v.(error)
+		if ok {
+			v := val.Error()
+			(*message)[k] = v
+		}
+	}
 	logger.Log.Message = message
 	pc, file, line, ok := runtime.Caller(1)
 	funcName := runtime.FuncForPC(pc).Name()

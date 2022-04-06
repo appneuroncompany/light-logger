@@ -5,16 +5,14 @@ import (
 	"time"
 )
 
-type Messages map[string]interface{}
-
 type logger struct {
-	Level     string    `json:"level"`
-	Timestamp string    `json:"@timestamp"`
-	Version   string    `json:"@version"`
-	App       string    `json:"app"`
-	Line      string    `json:"line"`
-	Method    string    `json:"method"`
-	Message   *Messages `json:"message"`
+	Level     string                  `json:"level"`
+	Timestamp string                  `json:"@timestamp"`
+	Version   string                  `json:"@version"`
+	App       string                  `json:"app"`
+	Line      string                  `json:"line"`
+	Method    string                  `json:"method"`
+	Message   *map[string]interface{} `json:"message"`
 }
 
 var Log = &logger{

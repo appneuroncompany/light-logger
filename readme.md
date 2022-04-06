@@ -91,4 +91,4 @@ Muhammed Sarı      | [muhammeedsari](https://github.com/muhammeedsari)   |
 
 # License
 
-MIT.
+Apache-2.0.

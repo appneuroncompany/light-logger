@@ -33,7 +33,7 @@ func main() {
 }
 ```
 
-This is how it will look like:
+This is how it will look like (will show colorful on linux terminal!):
 
 ```ruby
 {
@@ -44,7 +44,7 @@ This is how it will look like:
         "C:/path/to/main.go:13",
         "method": "main",
         "message": {
-                "smt err: ": {}
+                "smt err: ": "errors"
         }
 }
 {

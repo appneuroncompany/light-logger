@@ -15,19 +15,19 @@ import (
 func main() {
     logger.Log.App = "App name" // use this on main
 
-    clogger.Error(&logger.Messages{ // use it wherever you want
-        "smt err: ": errors.New("erors").Error(),
+    clogger.Error(&map[string]interface{}{ // use it wherever you want
+        "smt err: ": errors.New("erors"),
     })
 
-    clogger.Default(&logger.Messages{ // use it wherever you want
+    clogger.Default(&map[string]interface{}{ // use it wherever you want
         "Default message: ": "message",
     })
         
-    clogger.Info(&logger.Messages{ // use it wherever you want
+    clogger.Info(&map[string]interface{}{ // use it wherever you want
         "Info message: ": "message",
     })
 
-    clogger.Warning(&logger.Messages{ // use it wherever you want
+    clogger.Warning(&map[string]interface{}{ // use it wherever you want
         "Warning message: ": "message",
     })
 }

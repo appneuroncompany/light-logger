@@ -16,7 +16,7 @@ func main() {
     logger.Log.App = "App name" // use this on main
 
     clogger.Error(&map[string]interface{}{ // use it wherever you want
-        "smt err: ": errors.New("erors"),
+        "smt err: ": errors.New("errors"),
     })
 
     clogger.Default(&map[string]interface{}{ // use it wherever you want
